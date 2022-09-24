@@ -3,7 +3,7 @@
     background-color:bisque;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    justify-content:space-around;
     font-family: fantasy;
 }
 #image {
@@ -14,21 +14,30 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: stretch;
+  margin: 30px;
 }
 /* Header */
 .game-buttons-container {
   display: flex;
   justify-content: space-around;
+  align-items: stretch;
+  margin: 10px;
 }
 /* Body */
+.game {
+  display: flex;
+  flex-wrap: wrap;
+}
 
-/* Buttons */
 .button {
   display: flex;
   justify-content: space-around;
   padding: 5px;
   width: 100px;
+  width: auto;
 }
+
 
 .hidden {
   display: none;
