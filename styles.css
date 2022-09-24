@@ -1,10 +1,35 @@
 /* Document */
 * {
-    
+    background-color:bisque;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: fantasy;
+}
+#image {
+  height: 17vh;
+  width: 13vw;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
 }
 /* Header */
-
+.game-buttons-container {
+  display: flex;
+  justify-content: space-around;
+}
 /* Body */
 
 /* Buttons */
+.button {
+  display: flex;
+  justify-content: space-around;
+  padding: 5px;
+  width: 100px;
+}
 
+.hidden {
+  display: none;
+}
