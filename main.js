@@ -10,3 +10,6 @@
 function getRandomIndex(array) {
     return Math.floor(Math.random() * array.length);
 }
+
+//function chooseClassicWinner()
+//function chooseDifficultWinner()
