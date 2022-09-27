@@ -7,7 +7,7 @@ class Player {
     };
     takeTurn(choiceArray) {
         if (this.name === "Human") { 
-            var playerChoice = playerChoice;
+            var playerChoice = playerChoice; //this.choice = playerChoice;
         } else if (this.name === "Computer") { 
             var randomIndex = Math.floor(Math.random() * choiceArray.length);
             var randomChoice = choiceArray[randomIndex];
