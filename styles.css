@@ -6,7 +6,7 @@
     justify-content:space-around;
     font-family: fantasy;
 }
-#image {
+.image {
   height: 17vh;
   width: 13vw;
 }
@@ -34,10 +34,12 @@
   display: flex;
   justify-content: space-around;
   padding: 5px;
-  width: 100px;
-  width: auto;
 }
 
+.instructions {
+  display: flex;
+  flex-direction: column;
+}
 
 .hidden {
   display: none;
