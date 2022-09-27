@@ -1,13 +1,13 @@
 class Player {
-    constructor(name, icon) {
+    constructor(name, icon, choice) {
         this.name = name;
         this.icon = icon;
-        this.choice = "";
+        this.choice = choice;
         this.wins = 0
     };
-    takeTurn(choiceArray) {
+    takeTurn(choiceArray, playerChoice) {
         if (this.name === "Human") { 
-            var playerChoice = playerChoice;
+            this.choice = playerChoice;
         } else if (this.name === "Computer") { 
             var randomIndex = Math.floor(Math.random() * choiceArray.length);
             var randomChoice = choiceArray[randomIndex];
