@@ -5,19 +5,30 @@
     flex-direction: row;
     justify-content:space-around;
     font-family: fantasy;
+    max-width: 100vw;
+    max-height: 100vh;
+}
+
+body {
+  margin: 8px;
 }
 .image {
   height: 17vh;
   width: 13vw;
 }
 
+header {
+  display: flex;
+  flex-direction: column;
+}
+
 .container {
   display: flex;
   flex-direction: column;
-  align-items: stretch;
+  align-items:stretch;
   margin: 30px;
 }
-/* Header */
+
 .game-buttons-container {
   display: flex;
   justify-content: space-around;
@@ -30,6 +41,19 @@
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
+
+}
+
+.play {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.icon {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
 }
 
 .button {
@@ -41,6 +65,7 @@
 .instructions {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .hidden {
