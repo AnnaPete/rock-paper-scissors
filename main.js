@@ -3,27 +3,39 @@ var changeGameButton = document.querySelector(".change-game-button");
 var classicGameButton = document.querySelector(".classic-game-button");
 var difficultGameButton = document.querySelector(".difficult-game-button");
 var howToPlayButton = document.querySelector(".how-to-play");
-var classicWinner = "";
-var difficultWinner = "";
 var classicGame = document.querySelector(".classic-game-container");
 var difficultGame = document.querySelector(".difficult-game-container");
 var directions = document.querySelector(".instructions")
 
+//Global variables here
+var gameType = "";
+var rock = "rock";
+var paper = "paper";
+var scissors = "scissors";
+var lizard = "lizard";
+var spock = "spock";
+var classicChoices = [rock, paper, scissors];
+var difficultChoices = [rock, paper, scissors, lizard, spock];
+var choiceArray = "";
+var classicWinner = "";
+var difficultWinner = "";
+
 // Event Listeners go here
-changeGameButton.addEventHandler("click", goHome);
+// changeGameButton.addEventHandler("click", goHome);
 classicGameButton.addEventListener("click", displayClassicGame);
 difficultGameButton.addEventListener("click", displayDifficultGame);
 howToPlayButton.addEventListener("click", showRules)
 
 // Event Handlers go here
-goHome() {
-
-};
+// goHome() {
+// 
+// };
 
 function displayClassicGame() {
     classicGame.classList.remove("hidden");
     classicGameButton.classList.add("hidden");
     difficultGameButton.classList.add("hidden");
+    howToPlayButton.classList.add("hidden");
 };
 
 function displayDifficultGame() {
@@ -33,10 +45,14 @@ function displayDifficultGame() {
 };
 
 function showRules() {
-    instructions.classList.remove("hidden");
+    directions.classList.remove("hidden");
     classicGameButton.classList.add("hidden");
     difficultGameButton.classList.add("hidden");
 }
+
+// function goHome() {
+// 
+// }
 
 // Other functions go here
 function getRandomIndex(array) {

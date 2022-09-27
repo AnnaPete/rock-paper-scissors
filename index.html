@@ -6,7 +6,7 @@
   </head>
   <body>
     <section class="human-player-container container">
-      <img src="./images/person-icon-8.png" alt="Human" class="human-image" id="image">
+      <img src="./images/person-icon-8.png" alt="Human" class="human-image image">
       <h3 class="human-player"> Human </h3>
       <p class="win-counter"> Wins: 0 </p>
       <button class="change-game-button button"> Change game? </button>
@@ -22,45 +22,47 @@
           </div>
           <section class="instructions hidden">
             <h2> Directions: </h2>
-            <p> 1. Choose Classic or Difficulty
+            <ol> 1. Choose Classic or Difficulty
                 2. Choose a fighter by clicking on its corresponding icon.
                 3. Fight!
-
-                Remember the rules:
-                Classic
-                - Rock > Scissors
-                - Paper > Rock
-                - Scissors > Paper
-                
-                Difficult
-                - Rock > Scissors and Lizard
-                - Paper > Rock and Spock
-                - Scissors > Paper and Lizard
-                - Lizard > Spock and Paper
-                - Spock > Scissors and Rock
-            </p>
+            </ol>
+            <h2> Remember the rules: </h2>
+            <h3> Classic </h3>
+            <ul>
+              - Rock > Scissors
+              - Paper > Rock
+              - Scissors > Paper
+            </ul>
+            <h3> Difficult </h3>
+            <ul>
+              - Rock > Scissors and Lizard
+              - Paper > Rock and Spock
+              - Scissors > Paper and Lizard
+              - Lizard > Spock and Paper
+              - Spock > Scissors and Rock
+            </ul>
           </section>
         </div>
       </header>
       <section class="classic-game-container game hidden">
-        <section class="classic-game hidden">
-          <img src="./images/happy-rocks.png" class="rock">
-          <img src=".images/happy-scissors" class="scissors">
-          <img src="./images/happy-paper.png" class="paper">
+        <section class="classic-game">
+          <img src="./images/happy-rocks.png" class="rock image">
+          <img src="./images/happy-scissors.png" class="scissors image">
+          <img src="./images/happy-paper.png" class="paper image">
         </section>
       </section>
       <section class="difficult-game-container game hidden">
-        <section class="difficult-game hidden">
-          <img src="./images/happy-rocks.png" class="rock">
-          <img src=".images/happy-scissors" class="scissors">
-          <img src="./images/happy-paper.png" class="paper">
-          <img src="./images/lizard-image.png" class="lizard">
-          <img src=".images/spock.webp" class="spock">
+        <section class="difficult-game">
+          <img src="./images/happy-rocks.png" class="rock image">
+          <img src="./images/happy-scissors.png" class="scissors image">
+          <img src="./images/happy-paper.png" class="paper image">
+          <img src="./images/lizard-image.png" class="lizard image">
+          <img src="./images/spock.webp" class="spock image">
         </section>
       </section>
     </main>
       <section class="computer-player-container container">
-        <img src="./images/laptop-icon-png-14.png" alt="computer" class="computer-image" id="image">
+        <img src="./images/laptop-icon-png-14.png" alt="computer" class="computer-image image">
         <h3 class="computer-player"> Computer </h3>
         <p class="win-counter"> Wins: 0 </p>
       </section>
