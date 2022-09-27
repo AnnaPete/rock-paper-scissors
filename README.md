@@ -1,5 +1,5 @@
 # Abstract:
-
+Who doesn't love a good game of rock, paper, scissors? I have created a virtual spinoff of this well known game so that any user can compete against the computer! There are two modes: Classic and Difficult. While the classic game has three choices, the difficult game has five.
 
 # Installation Instructions:
 1. Go to [this repo](git@github.com:AnnaPete/rock-paper-scissors.git) on Github
@@ -13,10 +13,11 @@
 9. Manipulate the application in the browser window
 
 # Preview of App:
-
+### Classic
+### Difficult 
 
 # Context:
-
+I am a current student at Turing School of Web Development and Design. This game was my final project for Module 1. Over the course of one week, I spent between two hours and eight hours per day completing this project.
 
 # Contributors:
 - [Anna Peterson](https://github.com/annapete)
@@ -35,7 +36,8 @@
 - Chrome Browser/Dev tools
 
 # Wins:
-- 
+- I figured out how to write all HTML elements without having to refactor everything
+- I made it pretty far in the project without having to reach out to someone for help
 
 # Challenges:
-- 
+- I had a lot of trouble with creating functions to play the game without sacrificing the functionality of my buttons
