@@ -11,20 +11,29 @@ var game = document.querySelector(".game");
 var humanWins = document.querySelector(".human-win-counter");
 var computerWins = document.querySelector(".computer-win-counter");
 var winnerMsg = document.querySelector(".winner-announcement");
+var rock1 = document.querySelector(".rock-classic");
+var paper1 = document.querySelector(".paper-classic");
+var scissors1 = document.querySelector(".scissors-classic");
+var rock2 = document.querySelector(".rock-difficult");
+var paper2 = document.querySelector(".paper-difficult");
+var scissors2 = document.querySelector(".scissors-difficult");
+var lizard = document.querySelector(".lizard");
+var spock = document.querySelector(".spock");
 
 //Global variables here
 var gameType = "";
-var rock = "rock";
-var paper = "paper";
-var scissors = "scissors";
-var lizard = "lizard";
-var spock = "spock";
-var classicChoices = [rock, paper, scissors];
-var difficultChoices = [rock, paper, scissors, lizard, spock];
+// var rock = "rock";
+// var paper = "paper";
+// var scissors = "scissors";
+// var lizard = "lizard";
+// var spock = "spock";
+var playerChoice;
+var classicChoices = [rock1, paper1, scissors1];
+var difficultChoices = [rock2, paper2, scissors2, lizard, spock];
 var classicWinner = "";
 var difficultWinner = "";
-var player1 = "Human";
-var player2 = "Computer";
+var player1 = new Player("Human", "💪");
+var player2 = new Player("Computer", "🖥");
 
 // Event Listeners go here
 changeGameButton.addEventListener("click", goHome);
@@ -32,12 +41,12 @@ classicGameButton.addEventListener("click", displayClassicGame);
 difficultGameButton.addEventListener("click", displayDifficultGame);
 howToPlayButton.addEventListener("click", showRules)
 goBackButton.addEventListener("click", hideInstructions)
-rock.addEventListener("click", chooseClassicWinner)
-paper.addEventListener("click", chooseClassicWinner)
-scissors.addEventListener("click", chooseClassicWinner)
-rock.addEventListener("click", chooseDifficultWinner)
-paper.addEventListener("click", chooseDifficultWinner)
-scissors.addEventListener("click", chooseDifficultWinner)
+rock1.addEventListener("click", chooseClassicWinner)
+paper1.addEventListener("click", chooseClassicWinner)
+scissors1.addEventListener("click", chooseClassicWinner)
+rock2.addEventListener("click", chooseDifficultWinner)
+paper2.addEventListener("click", chooseDifficultWinner)
+scissors2.addEventListener("click", chooseDifficultWinner)
 lizard.addEventListener("click", chooseDifficultWinner)
 spock.addEventListener("click", chooseDifficultWinner)
 
@@ -57,12 +66,14 @@ function displayDifficultGame() {
 
 function showRules() {
   directions.classList.remove("hidden");
+  howToPlayButton.classList.add("hidden");
   classicGameButton.classList.add("hidden");
   difficultGameButton.classList.add("hidden");
 }
 
 function hideInstructions() {
   directions.classList.add("hidden");
+  howToPlayButton.classList.remove("hidden");
   classicGameButton.classList.remove("hidden");
   difficultGameButton.classList.remove("hidden");
 }
@@ -76,51 +87,54 @@ function goHome() {
 };
 
 function playClassicGame(event) {
-  if (event.target === rock) {
-    playerChoice = rock;
-  } else if (event.target === paper) {
-    playerChoice = paper;
-  } else if (event.target === scissors) {
-    playerChoice = scissors;
+  if (event.target.classList.contains("rock1")) {
+    player1.choice = rock1;
+  } else if (event.target.classList.contains("paper1")) {
+    player1.choice = paper1;
+  } else if (event.target.classList.contains("scissors1")) {
+    player1.choice = scissors1;
   };
 };
 
 function playDifficultGame(event) {
-  if (event.target === rock) {
-    playerChoice = rock;
-  } else if (event.target === paper) {
-    playerChoice = paper;
-  } else if (event.target === scissors) {
-    playerChoice = scissors;
-  } else if (event.target === lizard) {
-    playerChoice = lizard;
-  } else if (event.target === spock) {
-    playerChoice = spock;
+  if (event.target.classList.contains("rock2")) {
+    player1.choice = rock2;
+  } else if (event.target.classList.contains("paper2")) {
+    player1.choice = paper2;
+  } else if (event.target.classList.contains("scissors2")) {
+    player1.choice = scissors2;
+  } else if (event.target.classList.contains("lizard")) {
+    player1.choice = lizard;
+  } else if (event.target.classList.contains("spock")) {
+    player1.choice = spock;
   }
 };
 
-function chooseClassicWinner() {
-  if (player1.choice === rock && player2.choice === paper) {
+function chooseClassicWinner(event) {
+  playClassicGame(event)
+  player1.takeTurn(classicChoices, player1.choice);
+  player2.takeTurn(classicChoices, playerChoice);
+  if (player1.choice === rock1 && player2.choice === paper1) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === paper && player2.choice === scissors) {
+  } else if (player1.choice === paper1 && player2.choice === scissors1) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === scissors && player2.choice === rock) {
+  } else if (player1.choice === scissors1 && player2.choice === rock1) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === rock && player2.choice === scissors) {
+  } else if (player1.choice === rock1 && player2.choice === scissors1) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === paper && player2.choice === rock) {
+  } else if (player1.choice === paper1 && player2.choice === rock1) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === scissors && player2.choice === paper) {
+  } else if (player1.choice === scissors1 && player2.choice === paper1) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
@@ -130,40 +144,43 @@ function chooseClassicWinner() {
   };
 };
 
-function chooseDifficultWinner() {
-  if (player1.choice === rock && player2.choice === paper) {
+function chooseDifficultWinner(event) {
+  playDifficultGame(event)
+  player1.takeTurn(difficultChoices, playerChoice);
+  player2.takeTurn(difficultChoices, playerChoice);
+  if (player1.choice === rock2 && player2.choice === paper2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === paper && player2.choice === rock) {
+  } else if (player1.choice === paper2 && player2.choice === rock2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  }else if (player1.choice === paper && player2.choice === scissors) {
+  }else if (player1.choice === paper2 && player2.choice === scissors2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === scissors && player2.choice === paper) {
+  } else if (player1.choice === scissors2 && player2.choice === paper2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === lizard && player2.choice === scissors) {
+  } else if (player1.choice === lizard && player2.choice === scissors2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === spock && player2.choice === rock) {
+  } else if (player1.choice === spock && player2.choice === rock2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === scissors && player2.choice === lizard) {
+  } else if (player1.choice === scissors2 && player2.choice === lizard) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === rock && player2.choice === scissors) {
+  } else if (player1.choice === rock2 && player2.choice === scissors2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === scissors && player2.choice === rock) {
+  } else if (player1.choice === scissors2 && player2.choice === rock2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
@@ -171,15 +188,15 @@ function chooseDifficultWinner() {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === lizard && player2.choice === rock) {
+  } else if (player1.choice === lizard && player2.choice === rock2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === spock && player2.choice === scissors) {
+  } else if (player1.choice === spock && player2.choice === scissors2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === rock && player2.choice === lizard) {
+  } else if (player1.choice === rock2 && player2.choice === lizard) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
@@ -187,27 +204,27 @@ function chooseDifficultWinner() {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === rock && player2.choice === spock) {
+  } else if (player1.choice === rock2 && player2.choice === spock) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === paper && player2.choice === spock) {
+  } else if (player1.choice === paper2 && player2.choice === spock) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === spock && player2.choice === paper) {
+  } else if (player1.choice === spock && player2.choice === paper2) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === paper && player2.choice === lizard) {
+  } else if (player1.choice === paper2 && player2.choice === lizard) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
-  } else if (player1.choice === lizard && player2.choice === paper) {
+  } else if (player1.choice === lizard && player2.choice === paper2) {
     humanWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Human wins!";
-  } else if (player1.choice === scissors && player2.choice === spock) {
+  } else if (player1.choice === scissors2 && player2.choice === spock) {
     computerWins.innerText = "Wins: " + 1;
     winnerMsg.classList.remove("hidden");
     winnerMsg.innerText = "Computer wins!";
