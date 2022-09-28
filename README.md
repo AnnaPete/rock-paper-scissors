@@ -12,6 +12,8 @@ Who doesn't love a good game of rock, paper, scissors? I have created a virtual 
 8. Type open index.html in the terminal
 9. Manipulate the application in the browser window
 
+Click [here](https://annapete.github.io/rock-paper-scissors/) to go to the website
+
 # Preview of App:
 
 ### Classic 
