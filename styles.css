@@ -1,5 +1,5 @@
 /* Document */
-* {
+body, body * {
     background-color:bisque;
     display: flex;
     flex-direction: row;
