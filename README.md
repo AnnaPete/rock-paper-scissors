@@ -39,6 +39,9 @@ I am a current student at Turing School of Web Development and Design. This game
 # Tech Used
 - GitHub
 - Terminal
+- HTML
+- CSS
+- JavaScript
 - VS Code
 - Chrome Browser/Dev tools
 
